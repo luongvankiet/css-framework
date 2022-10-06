@@ -2,13 +2,13 @@ const { src, dest, watch, series } = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 
 function buildStyles() {
-    return src('sass/index.scss')
+    return src('./sass/**/*.scss')
         .pipe(sass())
-        .pipe(dest('css'))
+        .pipe(dest('./css'))
 }
 
 function watchTask() {
-    watch(['index.scss'], buildStyles)
+    watch(['./sass/**/*.scss'], buildStyles)
 }
 
-exports.default = series(buildStyles, watchTask);
+exports.default = series(buildStyles, watchTask)
